@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 主启动入口
+ * 主启动入口 
  * @author Mr yi
  */
 @SpringBootApplication
