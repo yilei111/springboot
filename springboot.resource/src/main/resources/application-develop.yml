@@ -1,0 +1,8 @@
+#设置项目路径和端口号  
+server:
+  port: 8001
+  servlet: 
+    context-path: /spring-resource
+
+  
+  

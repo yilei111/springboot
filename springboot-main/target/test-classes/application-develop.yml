@@ -1,0 +1,20 @@
+spring:
+  #thymeleaf模块配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8 
+    #清除缓存，实现热部署。也就是修改了html后不用重启，刷新页面就能看到效果。再回到浏览器刷新，就能看到效果了     
+    cache: false  
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+#设置项目路径和端口号  
+server:
+  port: 8080
+  servlet: 
+    context-path: /spring-main
