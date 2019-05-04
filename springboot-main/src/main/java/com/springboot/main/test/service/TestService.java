@@ -2,7 +2,7 @@ package com.springboot.main.test.service;
 
 import java.util.List;
 
-import com.springboot.core.service.BaseService;
+import com.springboot.main.core.service.BaseService;
 import com.springboot.main.test.entity.Test;
 /**
  * 用户Test service接口
