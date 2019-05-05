@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="foot">
+	<!-- basic scripts -->
+
+	<!--[if !IE]> -->
+	<script th:src="@{${baseUrl}+'ace-master/assets/js/jquery-2.1.4.min.js'}" src="/ace-master/assets/js/jquery-2.1.4.min.js"></script>
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+		<script th:src="@{/ace-master/assets/js/jquery-1.11.3.min.js}" src="/ace-master/assets/js/jquery-1.11.3.min.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript">
+		if ('ontouchstart' in document.documentElement)
+			document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+							+" <"+"/script>");
+	</script>
+	<script th:src="@{${baseUrl}+'ace-master/assets/js/bootstrap.min.js'}" src="/ace-master/assets/js/bootstrap.min.js"></script>
+
+</div>
