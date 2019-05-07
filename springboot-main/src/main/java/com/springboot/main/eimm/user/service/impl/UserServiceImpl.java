@@ -2,6 +2,7 @@ package com.springboot.main.eimm.user.service.impl;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.session.RowBounds;
@@ -138,6 +139,22 @@ public class UserServiceImpl   implements UserService {
 	public List<Map<String, Object>> selectMapsPage(RowBounds rowBounds, Wrapper<User> wrapper) {
 		// TODO Auto-generated method stub
 		return userMapper.selectMapsPage(rowBounds, wrapper);
+	}
+
+	/**
+	 * @method 根据Map参数值，来查询用户对象（如果map为空，返回null对象）
+	 * @author Mr yi
+	 * @time 2019年5月6日
+	 * @param map
+	 * @return
+	 */
+	@Override
+	public User selectUserByUserName(Map<String,Object> map ) {
+		List<User> list=  map.isEmpty() ? null:  userMapper.selectByMap(map);
+		if(list!=null && !list.isEmpty()){
+			return list.get(0);
+		}
+		return null;
 	}
 	
 

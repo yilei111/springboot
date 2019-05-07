@@ -17,7 +17,11 @@ import com.springboot.main.eimm.user.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
  
-
+/**
+ * @method 用户控制层
+ * @author Mr yi
+ * @time 2019年5月6日
+ */
 @Controller
 @Slf4j
 @RequestMapping("/user")
@@ -27,11 +31,6 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping("/login")
-	public String login() {
-		return "login";
-	}
-	 
 	 
 	 
 

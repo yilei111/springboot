@@ -18,7 +18,11 @@ import com.springboot.main.eimm.role.service.RoleService;
 
 import lombok.extern.slf4j.Slf4j;
  
-
+/**
+ * @method 角色控制层
+ * @author Mr yi
+ * @time 2019年5月6日
+ */
 @Controller
 @Slf4j
 @RequestMapping("/role")
@@ -29,7 +33,6 @@ public class RoleController {
 	RoleService roleService;
 	
 	
-	 
 	 
 	 
 

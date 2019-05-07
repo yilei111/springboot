@@ -13,10 +13,10 @@
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">Ace</span>
-									<span class="white" id="id-text2">Application</span>
+									<span class="red">IT</span>
+									<span class="white" id="id-text2">菜鸟</span>
 								</h1>
-								<h4 class="blue" id="id-company-text">&copy; Company Name</h4>
+								<h4 class="blue" id="id-company-text">&copy; IT菜鸟工作室</h4>
 							</div>
 
 							<div class="space-6"></div>
@@ -27,38 +27,38 @@
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="ace-icon fa fa-coffee green"></i>
-												Please Enter Your Information
+												欢迎来到IT菜鸟
 											</h4>
 
 											<div class="space-6"></div>
 
-											<form>
+											 <form id="loginform" th:action="@{/main/login}" action="" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text" class="form-control" name="user_name" placeholder="请输入用户账号"  />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" class="form-control" name="user_pwd" placeholder="请输入用户密码"  />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
-
+													<span class="red" th:text="${msg}"></span>
 													<div class="space"></div>
 
 													<div class="clearfix">
 														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> Remember Me</span>
+															<input type="checkbox" name="rememberMe" class="ace" />
+															<span class="lbl"> 记住密码</span>
 														</label>
 
 														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Login</span>
+															<span class="bigger-110" onclick="javascript:$('#loginform').submit();" >登录</span>
 														</button>
 													</div>
 
@@ -67,7 +67,7 @@
 											</form>
 
 											<div class="social-or-login center">
-												<span class="bigger-110">Or Login Using</span>
+												<span class="bigger-110">第三方登录</span>
 											</div>
 
 											<div class="space-6"></div>
@@ -91,13 +91,13 @@
 											<div>
 												<a href="#" data-target="#forgot-box" class="forgot-password-link">
 													<i class="ace-icon fa fa-arrow-left"></i>
-													I forgot my password
+													忘记密码
 												</a>
 											</div>
 
 											<div>
 												<a href="#" data-target="#signup-box" class="user-signup-link">
-													I want to register
+													前去注册
 													<i class="ace-icon fa fa-arrow-right"></i>
 												</a>
 											</div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head th:replace="common/common_header :: common_header(~{::title},~{},~{},~{})">
 	<title>测试界面</title>
 </head>
@@ -872,8 +872,9 @@
 								</span>
 							</form>
 						</div><!-- /.nav-search -->
+						<!-- <a shiro:hasPermission="/user/userList"  class="">添加</a> -->
 					</div>
-
+ 
 					<div class="page-content">
 						<div class="ace-settings-container" id="ace-settings-container">
 							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
@@ -989,9 +990,7 @@
 		<!-- basic scripts -->
 	    <div th:replace="common/common_foot :: foot"></div>
 		 
-		<!-- ace scripts -->
-		<script th:src="@{${baseUrl}+'ace-master/assets/js/ace-elements.min.js'}" src="/ace-master/assets/js/ace-elements.min.js"></script>
-		<script th:src="@{${baseUrl}+'ace-master/assets/js/ace.min.js'}" src="/ace-master/assets/js/ace.min.js"></script>
+		 
 
 		 
 	</body>

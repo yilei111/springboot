@@ -140,5 +140,16 @@ public class PermissionServiceImpl   implements PermissionService {
 		return permissionMapper.selectMapsPage(rowBounds, wrapper);
 	}
 	
+	/**
+	 * @method 查询用户具有的全部权限链接( permission_url 不为空的）
+	 * @author Mr yi
+	 * @time 2019年5月6日
+	 * @param user_id
+	 * @return
+	 */
+	@Override
+	public List<Permission> getPermissionListByUserId(String user_id){
+		return permissionMapper.getPermissionListByUserId(user_id);
+	}
 
 }

@@ -1,9 +1,19 @@
 spring:
+#关闭springboot 浏览器启动出现图标Favicon
+  mvc:
+    favicon:
+      enabled: false
+#指定端口,具体视自己情况而定,只要不重复就可以(SpringBoot 热部署插件使用端口号,默认是35730)
+  devtools:
+    livereload:
+      port:  35731
   #thymeleaf模块配置
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
-    mode: HTML5
+    ##非严格检查-LEGACYHTML5
+    ##非严格检查-HTML5
+    mode:  LEGACYHTML5
     encoding: UTF-8 
     #清除缓存，实现热部署。也就是修改了html后不用重启，刷新页面就能看到效果。再回到浏览器刷新，就能看到效果了     
     cache: false  
@@ -13,6 +23,10 @@ spring:
     username: root
     password: 123456
     driver-class-name:  com.mysql.cj.jdbc.Driver
+  jpa:
+    #禁用视图
+    open-in-view: false
+
   #单个redis配置  
   redis:
     #Redis服务器地址

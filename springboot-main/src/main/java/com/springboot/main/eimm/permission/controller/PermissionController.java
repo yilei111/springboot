@@ -19,19 +19,19 @@ import com.springboot.main.eimm.role.service.RoleService;
 
 import lombok.extern.slf4j.Slf4j;
  
-
 @Controller
 @Slf4j
 @RequestMapping("/permission")
+/**
+ * @method 权限资源控制层
+ * @author Mr yi
+ * @time 2019年5月6日
+ */
 public class PermissionController {
 
-	
 	@Autowired
 	 PermissionService permissionService;
 	
 	
-	 
-	 
-	 
 
 }
