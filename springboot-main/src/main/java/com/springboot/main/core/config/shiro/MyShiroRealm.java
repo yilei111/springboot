@@ -64,7 +64,6 @@ public class MyShiroRealm extends AuthorizingRealm {
 		if (user == null || StringUtils.isBlank(userName)) {
 			throw new UnknownAccountException();
 		}
-		System.out.println("user=" + user.toString());
 		if (StringUtils.equals("002", user.getUser_state())) { // 锁定
 			throw new LockedAccountException(); // 帐号锁定
 		}

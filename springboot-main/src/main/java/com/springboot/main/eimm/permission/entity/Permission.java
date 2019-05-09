@@ -43,6 +43,10 @@ public class Permission  implements Serializable{
 	@Column(name="permission_url")
 	private String permission_url;
 	
+	@NotBlank(message = "权限模块不能为空")
+	@Column(name="permission_module")
+	private String permission_module;
+	
 	@NotEmpty(message = "权限代码不能为空")
 	@Length(min = 6,max = 15, message = "权限代码长度为6-15位。")
 	@Column(name="permission_code")

@@ -24,11 +24,12 @@
 	</properties>
 	<dependencies>
 		<!-- springboot热部署插件 -->
-		<dependency>
+	  	<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+			<optional>true</optional>
+			<scope>true</scope>
+		</dependency> 
 
 		<!-- springboot -->
 		<dependency>
@@ -47,6 +48,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

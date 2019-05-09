@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.springboot.main.eimm.user.entity.User;
@@ -23,9 +24,23 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Controller
 @Slf4j
-@RequestMapping("/main")
+@RequestMapping("main")
 public class MainController {
 
+	/**
+	 * 
+	 * @method 通用访问页面方法（访问方式：http://127.0.0.1:8080/spring-main/main/main/content） 访问main文件夹下的content。html页面
+	 * @author Mr yi
+	 * @time 2019年5月9日
+	 * @param module
+	 * @param usecase
+	 * @return
+	 */
+	@RequestMapping("/{module}/{usecase}")
+	public String index(@PathVariable("module")String module,@PathVariable("usecase")String usecase){				
+		return module+"/"+usecase;
+	}
+	
 	/**
 	 * @method 用户登录（get)
 	 * @author Mr yi
@@ -104,22 +119,22 @@ public class MainController {
 	 */
 	@RequestMapping("/405")
 	public String error405() {
-		log.error("404异常发生！");
+		log.error("404异常发生1  ！");
 		return "error/error-404";
 	}
 
 	/**
 	 * @method 注销（logout方法自动清空shiro相关用户缓存)
-	 * @author Mr yi
+	 * @author Mr yi 
 	 * @time 2019年5月6日
 	 * @return
 	 */
 	@RequestMapping("/logout")
-	public String logout() {
+	public String logout1() {
 		Subject subject = SecurityUtils.getSubject();
 		subject.logout();
-		log.info("用户注销成功！");
+		log.info(" 用户注销成功 ！");
 		return "login";
 	}
-
+	
 }

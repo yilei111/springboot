@@ -1,4 +1,8 @@
 package com.springboot.common.uuid;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.UUID;
 /**
  * 所属类别:工具类
@@ -21,7 +25,5 @@ public abstract class CommonUtils {
 	}
 	
 
-
-	
 	
 }

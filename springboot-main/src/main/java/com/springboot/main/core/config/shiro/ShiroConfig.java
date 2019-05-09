@@ -19,6 +19,7 @@ import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -67,12 +68,36 @@ public class ShiroConfig {
 	 * @time 2019年5月6日
 	 * @return
 	 */
-	@Bean
+	@Bean("shiroDialect")
 	public ShiroDialect shiroDialect() {
 		log.info("配置thymeleaf方言shiroDialect");
 		return new ShiroDialect();
 	}
-	
+	/**
+     * 
+     * @param
+     * @return org.springframework.beans.factory.config.MethodInvokingFactoryBean
+     * @author Zain
+     * @description Spring静态注入：让某个方法的返回值注入bean实例
+     * @date 2019/1/9 17:18
+     */
+    @Bean
+    public MethodInvokingFactoryBean methodInvokingFactoryBean(SecurityManager securityManager){
+        MethodInvokingFactoryBean bean = new MethodInvokingFactoryBean();
+        bean.setStaticMethod("org.apache.shiro.SecurityUtils.setSecurityManager");
+        bean.setArguments(securityManager);
+        return bean;
+    }
+    @SuppressWarnings("rawtypes")
+	@Bean
+    public FilterRegistrationBean delegatingFilterProxy(){
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+        DelegatingFilterProxy proxy = new DelegatingFilterProxy();
+        proxy.setTargetFilterLifecycle(true);
+        proxy.setTargetBeanName("shiroFilter");
+        filterRegistrationBean.setFilter(proxy);
+        return filterRegistrationBean;
+    }
 	
 	/**
 	 * 
@@ -86,7 +111,7 @@ public class ShiroConfig {
 	 * @param securityManager
 	 * @return
 	 */
-	@Bean
+	@Bean("shiroFilter")
 	public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
 		log.info("ShiroConfiguration.shirFilter()");
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();

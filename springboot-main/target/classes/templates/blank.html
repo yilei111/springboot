@@ -872,9 +872,13 @@
 								</span>
 							</form>
 						</div><!-- /.nav-search -->
-						<!-- <a shiro:hasPermission="/user/userList"  class="">添加</a> -->
+					
 					</div>
- 
+					
+ 	用户姓名：：<shiro:principal property="user_name"/>
+	　<shiro:hasPermission name="/405">用户具有 405权限：
+　　</shiro:hasPermission>
+
 					<div class="page-content">
 						<div class="ace-settings-container" id="ace-settings-container">
 							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
