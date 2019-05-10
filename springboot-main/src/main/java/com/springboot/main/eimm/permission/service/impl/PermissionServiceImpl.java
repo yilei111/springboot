@@ -6,9 +6,12 @@ import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.springboot.common.core.common.RedisEnum;
 import com.springboot.main.eimm.permission.dao.PermissionMapper;
 import com.springboot.main.eimm.permission.entity.Permission;
 import com.springboot.main.eimm.permission.service.PermissionService;
@@ -20,6 +23,9 @@ public class PermissionServiceImpl   implements PermissionService {
 	@Autowired
 	PermissionMapper permissionMapper;
 
+	@Autowired
+    private RedisTemplate redisTemplate;
+	
 	@Override
 	public Integer insert(Permission entity) {
 		// TODO Auto-generated method stub
@@ -141,15 +147,28 @@ public class PermissionServiceImpl   implements PermissionService {
 	}
 	
 	/**
-	 * @method 查询用户具有的全部权限链接( permission_url 不为空的）
+	 * @method 查询用户具有的全部权限链接
 	 * @author Mr yi
 	 * @time 2019年5月6日
 	 * @param user_id
 	 * @return
 	 */
 	@Override
-	public List<Permission> getPermissionListByUserId(String user_id){
-		return permissionMapper.getPermissionListByUserId(user_id);
+	public List<Permission> getPermissionListByUserId(Map<String, Object> columnMap){
+		return permissionMapper.getPermissionListByUserId( columnMap);
+	}
+	
+	/**
+	 * @method 查询角色具有的全部权限
+	 * @author Mr yi
+	 * @time 2019年5月6日
+	 * @param Map<String, Object> columnMap
+	 * @return
+	 */
+	public List<Permission> getPermissionListByRoleId(Map<String, Object> columnMap){
+		 //ValueOperations<String, Permission> operations = redisTemplate.opsForValue();
+		// boolean hasKey = redisTemplate.hasKey(RedisEnum.REDIS_USER_LIST.getName());
+		return permissionMapper.getPermissionListByRoleId(columnMap);
 	}
 
 }

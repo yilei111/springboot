@@ -5,11 +5,17 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.springboot.main.eimm.permission.entity.Permission;
+import com.springboot.main.eimm.permission.service.PermissionService;
+import com.springboot.main.eimm.role.entity.Role;
+import com.springboot.main.eimm.role.service.RoleService;
 import com.springboot.main.eimm.user.dao.UserMapper;
 import com.springboot.main.eimm.user.entity.User;
 import com.springboot.main.eimm.user.service.UserService;
@@ -20,6 +26,12 @@ public class UserServiceImpl   implements UserService {
 
 	@Autowired
 	UserMapper userMapper;
+	
+	@Autowired
+	RoleService roleService;
+	
+	@Autowired
+	PermissionService permissionService;
 
 	@Override
 	public Integer insert(User entity) {
@@ -157,5 +169,18 @@ public class UserServiceImpl   implements UserService {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @method 查询用户具有的全部权限
+	 * @author Mr yi
+	 * @time 2019年5月10日
+	 * @param columnMap
+	 * @return
+	 */
+	@SuppressWarnings({ "unchecked", "null" })
+	public List<Permission> getPermissionListByUserId(Map<String, Object> columnMap){
+		return null;
+		
+	}
 
 }

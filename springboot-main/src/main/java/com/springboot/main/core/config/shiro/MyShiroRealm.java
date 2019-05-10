@@ -41,11 +41,17 @@ public class MyShiroRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
 		User user = (User) SecurityUtils.getSubject().getPrincipal(); 
-		List<Permission> permissionList = permissionService.getPermissionListByUserId(user.getId());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("role_state", "001");//角色状态：启用
+		map.put("user_id", user.getId());//用户id
+		map.put("permission_state", "001");//权限状态：启用
+		map.put("permission_type", "001"); //权限类型：菜单
+		List<Permission> permissionList = permissionService.getPermissionListByUserId(map);
 		// 获取该用户具有的全部权限
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 		for (Permission permission : permissionList) {
 			String url = permission.getPermission_url();
+			//权限不能有空数据
 			if(StringUtils.isNotBlank(url))
 			info.addStringPermission(permission.getPermission_url());
 		}
@@ -74,12 +80,11 @@ public class MyShiroRealm extends AuthorizingRealm {
 				user.getUser_pwd(), // 密码
 				ByteSource.Util.bytes(userName), getName() // realm name
 		);
-		// 当验证都通过后，把用户信息放在session里
-		/*
-		 * Session session = SecurityUtils.getSubject().getSession();
-		 * session.setAttribute("userSession", user);
-		 * session.setAttribute("userSessionId", user.getId());
-		 */
+		//当验证都通过后，把用户信息放在session里
+		 Session session = SecurityUtils.getSubject().getSession();
+		 session.setAttribute("userSession", user);
+		 session.setAttribute("userSessionId", user.getId());
+		 
 		return authenticationInfo;
 	}
 

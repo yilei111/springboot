@@ -166,6 +166,15 @@
 			<artifactId>nekohtml</artifactId>
 		</dependency>
 
+
+<!-- fastjson -->
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.47</version>
+</dependency>
+
+
 	</dependencies>
 	 <!-- 这是spring boot devtool plugin 热部署1常用-->
 	<!-- <build>

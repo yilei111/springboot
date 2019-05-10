@@ -146,11 +146,11 @@ public class RoleServiceImpl   implements RoleService {
 	 * @method 查询用户具有的全部角色( role_state 为001启用）
 	 * @author Mr yi
 	 * @time 2019年5月6日
-	 * @param user_id
+	 * @param Map<String, Object> columnMap
 	 * @return
 	 */
-	public List<Role> getRoleListByUserId(String user_id){
-		return roleMapper.getRoleListByUserId(user_id);
+	public List<Role> getRoleListByUserId(Map<String, Object> columnMap){
+		return roleMapper.getRoleListByUserId(columnMap);
 	}
 	
 	
