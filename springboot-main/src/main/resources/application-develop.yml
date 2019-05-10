@@ -72,18 +72,12 @@ server:
 pagehelper: 
   helperDialect: mysql
   
-#静态js/css资源文件
-resource:
-  #协议
-  protocol: http
-  #ip地址
-  ip: 127.0.0.1
-  #端口号
-  port: 8001
-  #项目名称
-  project_name: spring-resource
+#自定义的系统参数，参数值需要和server同步更新
+system:
+  #spring-main模块
+  spring-main: http://127.0.0.1:8080/spring-main/
+  #spring-resource模块
+  spring-resource: http://127.0.0.1:8001/spring-resource/
 
 
-
-#baseUrl: http://127.0.0.1:8001/spring-resource/ace-master/assets/css/bootstrap.min.css
   

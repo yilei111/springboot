@@ -1,11 +1,32 @@
+spring:
+#关闭springboot 浏览器启动出现图标Favicon
+  mvc:
+    favicon:
+      enabled: false
+ 
+  devtools:
+  #指定端口,具体视自己情况而定,只要不重复就可以(SpringBoot 热部署插件使用端口号,默认是35730)
+    livereload:
+      port:  35732 
+      
+ 
+        
 #设置项目路径和端口号  
 server:
   port: 8001
   servlet: 
     context-path: /spring-resource
 
- #指定端口,具体视自己情况而定,只要不重复就可以(SpringBoot 热部署插件使用端口号,默认是35730)
-  devtools:
-    livereload:
-      port:  35732 
+ 
+#自定义的系统参数，参数值需要和server同步更新
+spring-resource:
+  #协议
+  http: http
+  #本机ip
+  ip: 127.0.0.1
+  #端口号
+  port: 8001
+  #项目名称
+  project-name: spring-resource
+  
   

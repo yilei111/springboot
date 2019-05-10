@@ -120,14 +120,14 @@ public class ShiroConfig {
 		// 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
 		shiroFilterFactoryBean.setLoginUrl("/main/login");
 		// 登录成功后要跳转的链接
-		shiroFilterFactoryBean.setSuccessUrl("/main/blank");
+		shiroFilterFactoryBean.setSuccessUrl("/main/main/index");
 		// 未授权界面;
-		shiroFilterFactoryBean.setUnauthorizedUrl("/main/404");
+		shiroFilterFactoryBean.setUnauthorizedUrl("/main/error/error-404");
 		// 拦截器.
 		Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
 
 		filterChainDefinitionMap.put("/", "user");
-		filterChainDefinitionMap.put("/main/blank", "user");
+		filterChainDefinitionMap.put("/main/main/index", "user");
 		
 		// 配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了,这里我们在MainController自定义退出方法
 		filterChainDefinitionMap.put("/**","anon");

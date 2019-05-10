@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -139,6 +141,18 @@ public class RoleServiceImpl   implements RoleService {
 		// TODO Auto-generated method stub
 		return roleMapper.selectMapsPage(rowBounds, wrapper);
 	}
+	
+	/**
+	 * @method 查询用户具有的全部角色( role_state 为001启用）
+	 * @author Mr yi
+	 * @time 2019年5月6日
+	 * @param user_id
+	 * @return
+	 */
+	public List<Role> getRoleListByUserId(String user_id){
+		return roleMapper.getRoleListByUserId(user_id);
+	}
+	
 	
 
 }

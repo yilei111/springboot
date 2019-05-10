@@ -73,7 +73,7 @@ public class MainController {
 		Subject subject = SecurityUtils.getSubject();
 		try {
 			subject.login(token);
-			return "redirect:blank";
+			return "redirect:main/index";
 		} catch (LockedAccountException lae) {
 			token.clear();
 			request.setAttribute("msg", "该账号已被锁定！");
@@ -89,39 +89,6 @@ public class MainController {
 		}
 	}
 
-	/**
-	 * @method
-	 * @author Mr yi
-	 * @time 2019年5月6日
-	 * @return
-	 */
-	@RequestMapping("/blank")
-	public String blank() {
-		return "blank";
-	}
-
-	/**
-	 * @method 404异常响声界面
-	 * @author Mr yi
-	 * @time 2019年5月6日
-	 * @return
-	 */
-	@RequestMapping("/404")
-	public String error404() {
-		log.error("404异常发生！");
-		return "error/error-404";
-	}
-	/**
-	 * @method 404异常响声界面
-	 * @author Mr yi
-	 * @time 2019年5月6日
-	 * @return
-	 */
-	@RequestMapping("/405")
-	public String error405() {
-		log.error("404异常发生1  ！");
-		return "error/error-404";
-	}
 
 	/**
 	 * @method 注销（logout方法自动清空shiro相关用户缓存)
@@ -136,5 +103,7 @@ public class MainController {
 		log.info(" 用户注销成功 ！");
 		return "login";
 	}
+	
+	
 	
 }

@@ -19,7 +19,8 @@ public class CommonConfiguration {
 
 	@Resource
     private Environment env;
-
+	
+	
 	/**
 	 * @method 全局变量配置(配置静态资源服务的路径） http://127.0.0.1:8001/spring-resource/
 	 * @author Mr yi
@@ -30,10 +31,12 @@ public class CommonConfiguration {
     private void configureThymeleafStaticVars(ThymeleafViewResolver viewResolver) {
         if(viewResolver != null) {
             Map<String, Object> vars =  new HashMap<String, Object>();
-            //spring-resource 静态文件服务器地址
-            String baseUrl = env.getProperty("resource.protocol")+"://"+env.getProperty("resource.ip")
-            				+":"+env.getProperty("resource.port")+"/"+env.getProperty("resource.project_name")+"/";
-            vars.put("baseUrl", baseUrl);
+            //spring-main 模块
+            String spring_main = env.getProperty("system.spring-main");
+            vars.put("spring_main", spring_main);
+            //spring-resource 模块
+            String spring_resource = env.getProperty("system.spring-resource");
+            vars.put("spring_resource", spring_resource);
             viewResolver.setStaticVariables(vars);
         }
     }
