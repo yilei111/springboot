@@ -1,185 +1,87 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
-<head>
-<title>菜单界面</title>
-</head>
+<div th:fragment="index_meun">
 
-<body>
-	<div th:fragment="index_meun">
+	<script type="text/javascript">
+					try{ace.settings.loadState('sidebar')}catch(e){}
+				</script>
 
-		<div class="sidebar-shortcuts" id="sidebar-shortcuts">
-			<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-				<button class="btn btn-success">
-					<i class="ace-icon fa fa-signal"></i>
-				</button>
+	<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+		<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+			<button class="btn btn-success">
+				<i class="ace-icon fa fa-signal"></i>
+			</button>
 
-				<button class="btn btn-info">
-					<i class="ace-icon fa fa-pencil"></i>
-				</button>
+			<button class="btn btn-info">
+				<i class="ace-icon fa fa-pencil"></i>
+			</button>
 
-				<button class="btn btn-warning">
-					<i class="ace-icon fa fa-users"></i>
-				</button>
+			<button class="btn btn-warning">
+				<i class="ace-icon fa fa-users"></i>
+			</button>
 
-				<button class="btn btn-danger">
-					<i class="ace-icon fa fa-cogs"></i>
-				</button>
-			</div>
-
-			<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-				<span class="btn btn-success"></span> <span class="btn btn-info"></span>
-
-				<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>
-			</div>
+			<button class="btn btn-danger">
+				<i class="ace-icon fa fa-cogs"></i>
+			</button>
 		</div>
-		<!-- /.sidebar-shortcuts -->
 
-		<ul class="nav nav-list">
-		
-		    <!-- 只有一级 -->
-			<li class=""><a href="index.html"> <i
-					class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-						Dashboard </span>
-			</a> <b class="arrow"></b></li>
+		<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+			<span class="btn btn-success"></span> <span class="btn btn-info"></span>
 
-			
-			<li class=""><a href="#" class="dropdown-toggle"> <i
-					class="menu-icon fa fa-desktop"></i> <span class="menu-text">
-						UI &amp; Elements </span> <b class="arrow fa fa-angle-down"></b>
-			</a> <b class="arrow"></b>
-
-				<ul class="submenu">
-					<li class=""><a href="#" class="dropdown-toggle"> <i
-							class="menu-icon fa fa-caret-right"></i> Layouts <b
-							class="arrow fa fa-angle-down"></b>
-					</a> <b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class=""><a href="top-menu.html"> <i
-									class="menu-icon fa fa-caret-right"></i> Top Menu
-							</a> <b class="arrow"></b></li>
-							 
-						</ul></li>
-
-					<li class=""><a href="typography.html"> <i
-							class="menu-icon fa fa-caret-right"></i> Typography
-					</a> <b class="arrow"></b></li>
-
-					<li class=""><a href="elements.html"> <i
-							class="menu-icon fa fa-caret-right"></i> Elements
-					</a> <b class="arrow"></b></li>
-
-					<li class=""><a href="buttons.html"> <i
-							class="menu-icon fa fa-caret-right"></i> Buttons &amp; Icons
-					</a> <b class="arrow"></b></li>
-
-					<li class=""><a href="content-slider.html"> <i
-							class="menu-icon fa fa-caret-right"></i> Content Sliders
-					</a> <b class="arrow"></b></li>
-
-					<li class=""><a href="treeview.html"> <i
-							class="menu-icon fa fa-caret-right"></i> Treeview
-					</a> <b class="arrow"></b></li>
-
-					<li class=""><a href="jquery-ui.html"> <i
-							class="menu-icon fa fa-caret-right"></i> jQuery UI
-					</a> <b class="arrow"></b></li>
-
-					<li class=""><a href="nestable-list.html"> <i
-							class="menu-icon fa fa-caret-right"></i> Nestable Lists
-					</a> <b class="arrow"></b></li>
-
-					<li class=""><a href="#" class="dropdown-toggle"> <i
-							class="menu-icon fa fa-caret-right"></i> Three Level Menu <b
-							class="arrow fa fa-angle-down"></b>
-					</a> <b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class=""><a href="#"> <i
-									class="menu-icon fa fa-leaf green"></i> Item #1
-							</a> <b class="arrow"></b></li>
-
-							<li class=""><a href="#" class="dropdown-toggle"> <i
-									class="menu-icon fa fa-pencil orange"></i> 4th level <b
-									class="arrow fa fa-angle-down"></b>
-							</a> <b class="arrow"></b>
-
-								<ul class="submenu">
-									<li class=""><a href="#"> <i
-											class="menu-icon fa fa-plus purple"></i> Add Product
-									</a> <b class="arrow"></b></li>
-
-									<li class=""><a href="#"> <i
-											class="menu-icon fa fa-eye pink"></i> View Products
-									</a> <b class="arrow"></b></li>
-								</ul></li>
-						</ul></li>
-				</ul></li>
-
-			<li class=""><a href="#" class="dropdown-toggle"> <i
-					class="menu-icon fa fa-list"></i> <span class="menu-text">
-						Tables </span> <b class="arrow fa fa-angle-down"></b>
-			</a> <b class="arrow"></b>
-
-				<ul class="submenu">
-					<li class=""><a href="#"
-						onclick="loadPage('http://127.0.0.1:8080/spring-main/main/main/index')">
-							<i class="menu-icon fa fa-caret-right"></i> Simple &amp; Dynamic
-					</a> <b class="arrow"></b></li>
-
-					<li class=""><a href="#"
-						onclick="loadPage('http://127.0.0.1:8080/spring-main/main/main/index')">
-							<i class="menu-icon fa fa-caret-right"></i> jqGrid plugin
-					</a> <b class="arrow"></b></li>
-				</ul></li>
-
-
-
-		</ul>
-		<!-- /.nav-list -->
-
-		<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-			<i id="sidebar-toggle-icon"
-				class="ace-icon fa fa-angle-double-left ace-save-state"
-				data-icon1="ace-icon fa fa-angle-double-left"
-				data-icon2="ace-icon fa fa-angle-double-right"></i>
+			<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>
 		</div>
-		
-	<!-- basic scripts -->
-	<div th:replace="common/common_foot :: foot"></div>
+	</div>
+	<!-- /.sidebar-shortcuts -->
+
+	<ul class="nav nav-list">
+		<li class=""><a href="index.html"> <i
+				class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
+					Dashboard </span>
+		</a> <b class="arrow"></b></li>
+
+
+
+		<li class="active open">
+			<a href="#" class="dropdown-toggle">
+				<i class="menu-icon fa fa-list"></i> 
+				<span class="menu-text">系统管理 </span> 
+				<b class="arrow fa fa-angle-down"></b>
+			</a> 
+			<b class="arrow"></b>
+
+			<ul class="submenu">
+				<li class="active">
+					<a href="#" onclick="loadPage('http://127.0.0.1:8080/spring-main/main/user/user_list')">
+						<i class="menu-icon fa fa-caret-right"></i> 用户管理
+					</a> 
+					<b class="arrow"></b>
+				</li>
+
+				<li class="">
+					<a href="#" onclick="loadPage('http://127.0.0.1:8080/spring-main/main/main/index_content')">
+						<i class="menu-icon fa fa-caret-right"></i> jqGrid plugin
+					</a> 
+					<b class="arrow"></b>
+				</li>
+			</ul>
+		</li>
+
+	</ul>
+	<!-- /.nav-list -->
+
+	<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+		<i id="sidebar-toggle-icon"
+			class="ace-icon fa fa-angle-double-left ace-save-state"
+			data-icon1="ace-icon fa fa-angle-double-left"
+			data-icon2="ace-icon fa fa-angle-double-right"></i>
+	</div>
 	
 	<script type="text/javascript">
-	
-		var baseUrl = '[(${spring_main})]';
-		$(function() { 
-			loadMenu();
-			 
-		});
-		//动态加载菜单
-		function loadMenu(){ 
-			$.ajax({
-				url: baseUrl+"permission/loadMenu",
-				async: false,
-				success: function(data) {
-					if(data && data != "" && data != null){
-						alert(data);
-						
-						/* var treeObj = $.fn.zTree.init($("#treeDemo"), setting, eval('(' + data + ')'));
-						var nodes = treeObj.getNodes();
-						if(nodes && nodes.length>0){
-		                	var node = nodes[0];
-		                	treeObj.expandNode(node, false, false, true);
-	                	} */
-					}
-				}
-			});
-		}
+		//切换子页面
+	  function loadPage(url) {
+		  $("#mainFrame").attr("src",url);
+		// $("#page").load(url);
+		// $.ajaxSetup({cache: false });
+	  }
 	</script>
 	
-	
+</div>
 
-	</div>
-
-</body>
-</html>

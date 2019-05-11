@@ -243,10 +243,10 @@
 			</div><!-- /.main-content -->
 		</div><!-- /.main-container -->
 
-		<!-- basic scripts -->
-  		<div th:replace="common/common_foot :: foot"></div>
-
-		<!-- inline scripts related to this page -->
+	<!-- basic scripts -->
+	<div th:replace="common/common_foot::common_foot(~{::script})">
+    	<!--每个页面自己的js-->
+   	 	<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 			jQuery(function($) {
 			 $(document).on('click', '.toolbar a[data-target]', function(e) {
@@ -285,5 +285,8 @@
 			 
 			});
 		</script>
+	</div>	
+
+		
 	</body>
 </html>

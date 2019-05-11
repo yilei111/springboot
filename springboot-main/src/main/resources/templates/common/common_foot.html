@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
-<div th:fragment="foot">
+<div th:fragment="common_foot(script)">
 	<!-- basic scripts -->
 
 	<!--[if !IE]> -->
@@ -23,4 +23,9 @@
 	<!-- ace scripts -->
 	<script th:src="@{${spring_resource}+'ace-master/assets/js/ace-elements.min.js'}" ></script>
 	<script th:src="@{${spring_resource}+'ace-master/assets/js/ace.min.js'}" ></script>
+	
+	<th:block th:replace="${script}" />
+	
+	 
+
 </div>
