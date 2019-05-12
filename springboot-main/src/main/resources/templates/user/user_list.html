@@ -3,13 +3,18 @@
 	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head th:replace="common/common_header :: common_header(~{},~{},~{},~{})">
 
+
+
 </head>
 
 <body>
 
 	 
-
+<div class="outer-container-scroll" >
+     <div class="inner-containerr-scroll" >
+    
 	<div class="main-container ace-save-state" id="main-container">
+	
 		<script type="text/javascript">
 				try{ace.settings.loadState('main-container')}catch(e){}
 		</script>
@@ -22,22 +27,13 @@
 			<div class="main-content-inner">
 
 
-				<!-- 引入菜公共搜索框 -->
 
 				<div class="page-content">
 
 
-					<!-- 引入公用插件 -->
+	
 
-
-					<div class="page-header">
-						<h1>
-							Tables <small> <i
-								class="ace-icon fa fa-angle-double-right"></i> Static &amp;
-								Dynamic Tables
-							</small>
-						</h1>
-					</div>
+					 
 					<!-- /.page-header -->
 
 					<div class="row">
@@ -1395,13 +1391,17 @@
 			th:src="@{${spring_resource}+'ace-master/assets/js/buttons.colVis.min.js'}"></script>
 		<script
 			th:src="@{${spring_resource}+'ace-master/assets/js/dataTables.select.min.js'}"></script>
-
+ 
 
 
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
-	alert();
-			jQuery(function($) {
+	
+	
+	 
+	
+	
+ 			jQuery(function($) {
 				//initiate dataTables plugin
 				var myTable = 
 				$('#dynamic-table')
@@ -1634,6 +1634,8 @@
 			
 			})
 		</script>
+		</div>
+		</div> 
 		</div>
 </body>
 </html>

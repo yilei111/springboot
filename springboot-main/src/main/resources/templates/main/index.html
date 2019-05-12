@@ -37,8 +37,8 @@
 					<!-- 引入公用插件 -->
 					<div th:include="main/common/index_plugin :: index_plugin" class="ace-settings-container" id="ace-settings-container"></div>
 
-					<div id="page">
-						<iframe src="index_content" id="mainFrame"  scrolling ="no" name="mainFrame" onLoad="iFrameHeight()"  frameborder="0" marginheight="0" marginwidth="0" height="100%" width="100%"></iframe>
+					<div id="page" class="outer-container">
+						<iframe src="index_content" id="mainFrame" onload="iFrameHeight()"  scrolling="yes" name="mainFrame"   frameborder="0" marginheight="0" marginwidth="0" height="100%" width="100%"></iframe>
 					</div>
 					 
 					<!-- /.page-header -->
@@ -66,13 +66,15 @@
  
           <script type="text/javascript">
           
+          
+          
           function iFrameHeight() {
         	  var ifm= document.getElementById("mainFrame");
         	  var subWeb = document.frames ? document.frames["mainFrame"].document : ifm.contentDocument;
         	  if(ifm != null && subWeb != null) {
         	  ifm.height = subWeb.body.scrollHeight;
         	  }
-        	  }
+        	  }  
  
           </script>
 	 
