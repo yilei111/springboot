@@ -80,7 +80,11 @@
 					async: false,
 					success: function(data){
 						if(data && data!="" && data!=null){
-							alert(data);
+							 var html = "";
+							 $.each($.parseJSON(data), function(i, n){   
+				                     
+								      
+				                });   
 						}
 					}
 				});
