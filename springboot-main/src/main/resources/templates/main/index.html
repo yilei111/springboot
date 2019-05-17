@@ -65,9 +65,29 @@
 	<div th:replace="common/common_foot::common_foot(~{::script})">
  
           <script type="text/javascript">
+         
+          var spring_main = '[(${spring_main})]';
+         
+          $(function() {// 初始化内容
+  			 
+  				loadMenu();
+  	   	   }); 
           
+          //加载菜单
+          function loadMenu(){ 
+				$.ajax({
+					url: spring_main+"permission/loadMenu",
+					async: false,
+					success: function(data){
+						if(data && data!="" && data!=null){
+							alert(data);
+						}
+					}
+				});
+			
+			}
           
-          
+          //iframe自适应高度
           function iFrameHeight() {
         	  var ifm= document.getElementById("mainFrame");
         	  var subWeb = document.frames ? document.frames["mainFrame"].document : ifm.contentDocument;
