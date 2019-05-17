@@ -285,6 +285,13 @@
 			 
 			});
 		</script>
+		
+		<script>
+        <!-- 解决登录页面嵌套问题 -->
+        if (window != top){
+            top.location.href = location.href;
+        }
+    </script>
 	</div>	
 
 		
