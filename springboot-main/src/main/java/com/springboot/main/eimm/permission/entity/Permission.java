@@ -66,7 +66,7 @@ public class Permission  implements Serializable{
 	
 	@NotBlank(message = "权限父级id不能为空")
 	@Column(name="parent_id")
-	private int parent_id;
+	private String parent_id;
 	
 	@Column(name="permission_sort")
 	private int permission_sort;

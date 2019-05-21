@@ -26,8 +26,8 @@ public class PasswordHelper {
 	public static void main(String[] args) {
 		PasswordHelper passwordHelper = new PasswordHelper();
 		User user = new User();
-		user.setUser_name("admin");
-		user.setUser_pwd("admin");
+		user.setUser_name("user");
+		user.setUser_pwd("user");
 		passwordHelper.encryptPassword(user);
 		System.out.println(user);
 	}

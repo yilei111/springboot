@@ -40,6 +40,18 @@ public interface PermissionMapper extends BaseMapper<Permission>{
 		    	"<when test='permission_type!=null'>", 
 					"and t1.permission_type= #{permission_type}", 
 				"</when>",
+				//权限父级iD判断
+		    	"<when test='parent_id!=null'>", 
+
+			    	"<when test='parent_id==0'>", 
+						"and t1.parent_id= 0", 
+					"</when>",
+					"<when test='parent_id!=0 '>", 
+						"and t1.parent_id!= 0", 
+					"</when>",
+		    	
+				"</when>",
+				 
 		    	"ORDER BY t1.permission_sort asc ",
 			" </script>"})
 	public List<Permission> getPermissionListByUserId(Map<String, Object> columnMap);
