@@ -8,8 +8,13 @@ package com.springboot.common.core.common;
  */
 public enum RedisEnum {
 	
+	//redis过期时间（秒）
+	REDIS_EXPIRE_TIME("1800"),
+	
 	//用户菜单列表key
-	REDIS_USER_MENU_LIST("user_menu_list"); 
+	REDIS_USER_MENU_LIST("user_menu_list"),
+	//用户信息列表key
+	REDIS_USER_LIST("user_list"); 
  	
 	
 	
@@ -30,7 +35,7 @@ public enum RedisEnum {
 
  
   public static void main(String[] args) {
-	  System.out.println( RedisEnum.REDIS_USER_MENU_LIST.getName());
+	  System.out.println( RedisEnum.REDIS_EXPIRE_TIME.getName());
 }
 	
 }

@@ -1,0 +1,52 @@
+spring:
+#关闭springboot 浏览器启动出现图标Favicon
+  mvc:
+    favicon:
+      enabled: false
+
+  devtools:
+    restart:
+      #热部署生效
+      enabled: true
+      #设置重启的目录
+      #additional-paths: src/main/java
+      #classpath目录下的WEB-INF文件夹内容修改不重启    
+      exclude: WEB-INF/**  
+    #指定端口,具体视自己情况而定,只要不重复就可以(SpringBoot 热部署插件使用端口号,默认是35730) 
+    livereload:
+      port:  35735
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring?serverTimezone=UTC&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update  
+    show-sql: true
+    
+    #禁用视图
+    open-in-view: false
+
+#设置项目路径和端口号  
+server:
+  port: 8008
+  servlet: 
+    context-path: /spring-activiti/
+    
+ 
+ 
+
+  

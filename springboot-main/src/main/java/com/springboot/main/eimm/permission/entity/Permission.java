@@ -52,6 +52,10 @@ public class Permission  implements Serializable{
 	@Column(name="permission_code")
 	private String permission_code;
 	
+	@NotBlank(message = "权限图标不能为空")
+	@Column(name="permission_icon")
+	private String permission_icon;
+	
 	@NotBlank(message = "权限描述不能为空")
 	@Column(name="permission_desc")
 	private String permission_desc;

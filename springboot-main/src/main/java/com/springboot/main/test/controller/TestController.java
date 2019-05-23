@@ -1,5 +1,6 @@
 package com.springboot.main.test.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.springboot.main.eimm.user.controller.UserController;
+import com.springboot.main.eimm.user.entity.User;
 import com.springboot.main.test.entity.Test;
 import com.springboot.main.test.service.TestService;
 
@@ -36,7 +38,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Controller
 @Slf4j
-@RequestMapping("/test")
+@RequestMapping("/test11")
 public class TestController {
 
 	
@@ -177,6 +179,9 @@ public class TestController {
 	public String blank() {
 		return "blank";
 	}
+	
+	 
+
 	 
 
 }

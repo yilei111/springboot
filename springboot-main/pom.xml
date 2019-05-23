@@ -24,6 +24,7 @@
 		<commons-pool2.version>2.6.1</commons-pool2.version>
 		<thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
 		<thymeleaf-layout-dialect.version>2.0.0</thymeleaf-layout-dialect.version>
+		<Lucene.version>8.1.0</Lucene.version>
 
 	</properties>
 
@@ -57,24 +58,16 @@
 		</dependency>
 
 		<!-- springboot热部署插件1 -->
-	  <!-- 	<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-			<scope>true</scope>
-		</dependency> 
-  -->
-  
-  <!-- springboot热部署插件 2-->
-<!-- <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>springloaded</artifactId>
-    <version>1.2.8.RELEASE</version>
-</dependency> -->
- 
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-devtools</artifactId> 
+			<optional>true</optional> <scope>true</scope> </dependency> -->
+
+		<!-- springboot热部署插件 2 -->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>springloaded</artifactId> 
+			<version>1.2.8.RELEASE</version> </dependency> -->
 
 
-  
+
+
 		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -167,29 +160,62 @@
 		</dependency>
 
 
-<!-- fastjson -->
-<dependency>
-    <groupId>com.alibaba</groupId>
-    <artifactId>fastjson</artifactId>
-    <version>1.2.47</version>
-</dependency>
+		<!-- fastjson  -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.47</version>
+		</dependency>
+
+		
+		<!--核心包-->
+    <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-core</artifactId>
+        <version>${Lucene.version}</version>
+    </dependency>
+    <!--分词器-->
+    <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-analyzers-common</artifactId>
+        <version>${Lucene.version}</version>
+    </dependency>
+    <!--解析器-->
+    <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-queryparser</artifactId>
+        <version>${Lucene.version}</version>
+    </dependency>
+    <!--高亮-->
+    <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-highlighter</artifactId>
+        <version>${Lucene.version}</version>
+    </dependency>
+ 
+
+  
+    <!-- HttpComponents -->
+    <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>4.5.3</version>
+    </dependency>
+    <!-- dom -->
+    <dependency>
+        <groupId>dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>1.6.1</version>
+    </dependency>
 
 
 	</dependencies>
-	 <!-- 这是spring boot devtool plugin 热部署1常用-->
-	<!-- <build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<fork>true</fork>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build> -->
-	
+	<!-- 这是spring boot devtool plugin 热部署1常用 -->
+	<!-- <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId> 
+		<artifactId>spring-boot-maven-plugin</artifactId> <configuration> <fork>true</fork> 
+		</configuration> </plugin> </plugins> </build> -->
+
 	<build>
-         
-                </build>
+
+	</build>
 </project>

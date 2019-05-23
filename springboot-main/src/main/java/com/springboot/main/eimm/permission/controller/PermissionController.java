@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -14,6 +15,7 @@ import org.apache.shiro.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springboot.common.core.common.RedisEnum;
 import com.springboot.main.core.controller.M;
+import com.springboot.main.core.util.RedisUtils;
 import com.springboot.main.eimm.permission.entity.Permission;
 import com.springboot.main.eimm.permission.service.PermissionService;
 import com.springboot.main.eimm.role.service.RoleService;
@@ -39,11 +42,11 @@ import lombok.extern.slf4j.Slf4j;
 public class PermissionController {
 
 	@Autowired
-	 PermissionService permissionService;
-	
-	@SuppressWarnings("rawtypes")
+	PermissionService permissionService;
 	@Autowired
-    private RedisTemplate redisTemplate;
+	private RedisUtils redisUtils;
+	@Resource
+    private Environment env;
 	
 	/**
 	 * 
@@ -60,16 +63,16 @@ public class PermissionController {
 	public void loadMenu(HttpServletRequest request, HttpServletResponse response) {
 		String  userId =  String.valueOf(SecurityUtils.getSubject().getSession().getAttribute("userSessionId"));
 		String key =userId+ RedisEnum.REDIS_USER_MENU_LIST.getName();////用户菜单列表key
-		ValueOperations   operations = redisTemplate.opsForValue();
-		boolean hasKey = redisTemplate.hasKey(key);
+		
+		boolean hasKey =redisUtils.hasKey(key);
 		//直接获取redis缓存中用户菜单列表信息
 		if(hasKey) {
-			log.info("直接获取redis缓存中用户菜单列表信息:"+operations.get(key));
-			M.ajax(response,  operations.get(key));
+			log.info("直接获取redis缓存中用户菜单列表信息:"+redisUtils.get(key));
+			M.ajax(response,  redisUtils.get(key));
 		}else {
 			String  menu =  formartMenu(userId);
 			if(StringUtils.isNotBlank(menu)) {
-				operations.set(key, menu);
+				redisUtils.set(key, menu,Long.parseLong(RedisEnum.REDIS_EXPIRE_TIME.getName())); //半个小时过期
 				log.info("将用户菜单列表信息缓存到redis中");
 			}
 			log.info("从数据库获取用户菜单列表信息");
@@ -101,7 +104,10 @@ public class PermissionController {
 			if(StringUtils.isBlank(permissionParent.getPermission_url())) {
 				html.append("<a href=\"#\" class=\"dropdown-toggle\">  ");
 			}else {
-				html.append("<a href=\"#\" onclick=\"loadPage('http://127.0.0.1:8080/spring-main/main/user/user_list')\"> ");
+				
+				
+				
+				html.append("<a href=\"#\" onclick=\"loadPage('"+formartUrl(permissionParent)+"')\"> ");
 			}
 			html.append("		<i class=\"menu-icon fa fa-tachometer\"></i>  ");
 			html.append("		<span class=\"menu-text\">"+permissionParent.getPermission_name()+" </span>  ");
@@ -118,6 +124,13 @@ public class PermissionController {
 		return html.toString();
 	}
 	
+	//生成菜单url
+	@SuppressWarnings("unused")
+	private String formartUrl(Permission permission) {
+		String spring_module = env.getProperty("system."+permission.getPermission_module());
+		 return spring_module+permission.getPermission_url();
+	}
+	
 	//加载子节点菜单
 	private String formartMenu(List<Permission> permissionSonList,String id ) {
 		StringBuffer html = new StringBuffer(" ");
@@ -127,7 +140,7 @@ public class PermissionController {
 				if(StringUtils.isBlank(permissionSon.getPermission_url())) {
 					html.append("<a href=\"#\" class=\"dropdown-toggle\">  ");
 				}else {
-					html.append("<a href=\"#\" onclick=\"loadPage('http://127.0.0.1:8080/spring-main/main/user/user_list')\"> ");
+					html.append("<a href=\"#\" onclick=\"loadPage('"+formartUrl(permissionSon)+"')\"> ");
 				}
 				html.append("		<i class=\"menu-icon fa fa-caret-right\"></i>"+permissionSon.getPermission_name());
 				if(StringUtils.isBlank(permissionSon.getPermission_url())) {

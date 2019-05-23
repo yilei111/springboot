@@ -15,6 +15,7 @@
 		<module>springboot-common</module>
     	<module>springboot-generator</module>
     <module>springboot.resource</module>
+    <module>springboot-activiti</module>
   </modules>
 
 	<!-- 是一个特殊的starter,它用来提供相关的Maven默认依赖，使用它之后，常用的包依赖可以省去version标签 -->
