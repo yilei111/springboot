@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.springboot.main.function.file.service.FileService;
 import com.springboot.main.core.service.BaseService;
-import com.springboot.main.core.service.BaseService2;
 import com.springboot.main.function.file.dao.FileMapper;
 import com.springboot.main.function.file.entity.File;
  

@@ -28,23 +28,23 @@ public class Article implements Serializable {
 	@Column(name = "id")
 	private String id;
 	// 文章标题
-	@Column(name = "artitle_title")
-	private String artitle_title;
+	@Column(name = "article_title")
+	private String article_title;
 	// 文章内容
-	@Column(name = "artitle_content")
-	private String artitle_content;
+	@Column(name = "article_content")
+	private String article_content;
 	// 文章外链接
-	@Column(name = "artitle_url")
-	private String artitle_url;
+	@Column(name = "article_url")
+	private String article_url;
 	// 文字发布作者
-	@Column(name = "artitle_author")
-	private String artitle_author;
+	@Column(name = "article_author")
+	private String article_author;
 	// 文章类型
-	@Column(name = "artitle_type")
-	private String artitle_type;
+	@Column(name = "article_type")
+	private String article_type;
 	// 文章状态
-	@Column(name = "artitle_state")
-	private String artitle_state;
+	@Column(name = "article_state")
+	private String article_state;
 	@Column(name = "create_time")
 	private Date create_time;
 	@Column(name = "update_time")

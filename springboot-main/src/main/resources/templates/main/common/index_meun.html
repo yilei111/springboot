@@ -29,46 +29,15 @@
 			<span class="btn btn-warning"></span> <span class="btn btn-danger"></span>
 		</div>
 	</div>
-	<!-- /.sidebar-shortcuts -->
+	 
 
+ 	<!-- 菜单 -->
 	<ul class="nav nav-list">
-		<!-- <li class="">
-	<a href=""> 
-		<i class="menu-icon fa fa-tachometer"></i> 
-		<span class="menu-text">系统设置</span>
-	</a>
-	<b class="arrow"></b></li>
-
- 
-
-		<li class="active open">
-			<a href="#" class="dropdown-toggle">
-				<i class="menu-icon fa fa-list"></i> 
-				<span class="menu-text">系统管理 </span> 
-				<b class="arrow fa fa-angle-down"></b>
-			</a> 
-			<b class="arrow"></b>
-
-			<ul class="submenu">
-				<li class="active">
-					<a href="#" onclick="loadPage('http://127.0.0.1:8080/spring-main/main/user/user_list')">
-						<i class="menu-icon fa fa-caret-right"></i> 用户管理
-					</a> 
-					<b class="arrow"></b>
-				</li>
-
-				<li class="">
-					<a href="#" onclick="loadPage('http://127.0.0.1:8080/spring-main/main/main/index_content')">
-						<i class="menu-icon fa fa-caret-right"></i> jqGrid plugin
-					</a> 
-					<b class="arrow"></b>
-				</li>
-			</ul>
-		</li> -->
 
 	</ul>
-	<!-- /.nav-list -->
+	 
 
+	<!-- 菜单底部缩放 -->
 	<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 		<i id="sidebar-toggle-icon"
 			class="ace-icon fa fa-angle-double-left ace-save-state"
@@ -78,11 +47,12 @@
 	
 	<script type="text/javascript">
 		
-	  
-		
-	  //切换子页面
-	  function loadPage(url) {
-		  $("#mainFrame").attr("src",url);
+	  //菜单切换功能
+	  function loadPage(obj,url) {
+		  $("#mainFrame").attr("src",url); //切换子页面
+		  var thisObj=$(obj); 
+		  //动态生成栏目标题
+		  $(".breadcrumb").html('<li class="active"><i class="ace-icon glyphicon glyphicon-th"></i>'+thisObj.text()+'</li> ');
 	  }
 	</script>
 	

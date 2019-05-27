@@ -57,7 +57,6 @@ public class PermissionController {
 	 * @param response
 	 * @return
 	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping(value="/loadMenu")
 	@ResponseBody
 	public void loadMenu(HttpServletRequest request, HttpServletResponse response) {
@@ -107,9 +106,9 @@ public class PermissionController {
 				
 				
 				
-				html.append("<a href=\"#\" onclick=\"loadPage('"+formartUrl(permissionParent)+"')\"> ");
+				html.append("<a href=\"#\" onclick=\"loadPage(this,'"+formartUrl(permissionParent)+"')\"> ");
 			}
-			html.append("		<i class=\"menu-icon fa fa-tachometer\"></i>  ");
+			html.append("		<i class=\"menu-icon fa "+permissionParent.getPermission_icon()+"\"></i>  ");
 			html.append("		<span class=\"menu-text\">"+permissionParent.getPermission_name()+" </span>  ");
 			if(StringUtils.isBlank(permissionParent.getPermission_url())) {
 				html.append("<b class=\"arrow fa fa-angle-down\"></b>  ");
@@ -125,7 +124,6 @@ public class PermissionController {
 	}
 	
 	//生成菜单url
-	@SuppressWarnings("unused")
 	private String formartUrl(Permission permission) {
 		String spring_module = env.getProperty("system."+permission.getPermission_module());
 		 return spring_module+permission.getPermission_url();
@@ -140,9 +138,10 @@ public class PermissionController {
 				if(StringUtils.isBlank(permissionSon.getPermission_url())) {
 					html.append("<a href=\"#\" class=\"dropdown-toggle\">  ");
 				}else {
-					html.append("<a href=\"#\" onclick=\"loadPage('"+formartUrl(permissionSon)+"')\"> ");
+					html.append("<a href=\"#\" onclick=\"loadPage(this,'"+formartUrl(permissionSon)+"')\"> ");
 				}
-				html.append("		<i class=\"menu-icon fa fa-caret-right\"></i>"+permissionSon.getPermission_name());
+				html.append("		<i class=\"menu-icon fa  fa-caret-right\"></i>");
+				html.append("		<span class=\"menu-text\">"+permissionSon.getPermission_name()+" </span>  ");
 				if(StringUtils.isBlank(permissionSon.getPermission_url())) {
 					html.append("	<b class=\"arrow fa fa-angle-down\"></b>  ");
 				}else {

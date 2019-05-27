@@ -14,6 +14,9 @@ import org.apache.lucene.search.highlight.Formatter;
 import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.SimpleFragmenter;
 import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
+
+import com.springboot.main.eimm.search.util.LuceneUtils;
+
 import org.apache.lucene.search.highlight.Highlighter;
 public class LuceneDao {
     /**

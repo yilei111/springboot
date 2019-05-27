@@ -1,26 +1,20 @@
  <div th:fragment="index_search">
 	 
-						
-						<ul class="breadcrumb">
-							<li>
-								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Home</a>
-							</li>
+	<!--栏目信息 -->
+	<ul class="breadcrumb">
+       
+	</ul>
 
-							<li>
-								<a href="#">Tables</a>
-							</li>
-							<li class="active">Simple &amp; Dynamic</li>
-						</ul><!-- /.breadcrumb -->
-
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+	<!-- 搜索框 -->
+	<div class="nav-search"  > 
+		<form class="form-search"  target="mainFrame"    th:attr="action=${spring_main+'search/search'}" method="post">
+			<span class="input-icon">  
+				<input type="text"placeholder="Search ..." class="nav-search-input" required="required"  name="keyword" id="nav-search-input" autocomplete="off" />
+				<i class="ace-icon fa fa-search nav-search-icon"></i>
+			</span>
+		</form>
+	</div>
+	 
 	 
 </div>
  

@@ -81,12 +81,7 @@
 					success: function(data){
 						if(data && data!="" && data!=null){
 							 var html = "";
-							// alert($.parseJSON(data))
 							 $(".nav.nav-list").html($.parseJSON(data));
-							 /* $.each($.parseJSON(data), function(i, n){   
-				                     
-								      
-				                });    */
 						}
 					}
 				});
